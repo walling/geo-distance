@@ -1,7 +1,7 @@
 {
   "name" : "geo-distance",
   "version" : "0.1.0",
-  "description" : "Calculate and convert Earth distances.",
+  "description" : "Common JS module for calculating and converting Earth distances using correct great-circle distance formula.",
   "author": "Bjarke Walling <bwp@bwp.dk>",
   "repository" : {
     "type" : "git",

@@ -1,6 +1,6 @@
 
-Calculate and convert Earth distances using correct [great-circle distance
-formula](http://en.wikipedia.org/wiki/Great-circle_distance).
+Common JS module for calculating and converting Earth distances using correct
+[great-circle distance formula](http://en.wikipedia.org/wiki/Great-circle_distance).
 
 
 Installation
