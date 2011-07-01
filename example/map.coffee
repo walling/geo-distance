@@ -44,10 +44,25 @@ $ ->
 	map_canvas = $ '#map-canvas'
 	map_context = map_canvas.get(0).getContext '2d'
 
+	update_mouse = (event) ->
+		map_position = map_canvas.position()
+		click =
+			x: event.pageX - map_position.left
+			y: event.pageY - map_position.top
+		click.lon = click.x * factor_x - 180
+		click.lat = click.y * factor_y +  90
+		$('#position').text """
+			#{Math.abs(click.lon).toFixed 1}° #{if click.lon < 0 then 'W' else 'E'},
+			#{Math.abs(click.lat).toFixed 1}° #{if click.lat < 0 then 'S' else 'N'}.
+		"""
+		update()
+
 	earth_canvas = document.createElement 'canvas'
 	earth_canvas.width  = width
 	earth_canvas.height = height
 	earth_context = earth_canvas.getContext '2d'
+
+	update_moving_input = $ '#update-moving'
 
 	earth_img = document.createElement 'img'
 	earth_img.src = window.earth_src
@@ -57,18 +72,10 @@ $ ->
 
 		map_context.putImageData earth, 0, 0
 
-		map_canvas.click (event) ->
-			map_position = map_canvas.position()
-			click =
-				x: event.pageX - map_position.left
-				y: event.pageY - map_position.top
-			click.lon = click.x * factor_x - 180
-			click.lat = click.y * factor_y +  90
-			$('#position').text """
-				#{Math.abs(click.lon).toFixed 1}° #{if click.lon < 0 then 'W' else 'E'},
-				#{Math.abs(click.lat).toFixed 1}° #{if click.lat < 0 then 'S' else 'N'}.
-			"""
-			update()
+		map_canvas
+		.click(update_mouse)
+		.mousemove (event) ->
+			update_mouse event if update_moving_input.is ':checked'
 
 	update_radius = ->
 		radius = Distance radius_input.val()

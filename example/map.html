@@ -10,11 +10,16 @@
 	</head>
 	<body>
 		<h1>Example using geo-distance</h1>
-		<canvas id="map-canvas" width="400" height="200"></canvas>
+		<p>Do NOT click on the map! :-)</p>
+		<canvas id="map-canvas" width="400" height="200" style="border: 1px solid #eee;"></canvas>
 		<p>Position: <span id="position">-</span></p>
 		<p>
 			<label for="radius">Radius:</label>
 			<input id="radius" type="text" value="5000 km">
+		</p>
+		<p>
+			<input id="update-moving" type="checkbox" value="1">
+			<label for="update-moving">Update by just moving the mouse (burn the CPU)</label>
 		</p>
 	</body>
 </html>

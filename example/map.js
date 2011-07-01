@@ -38,30 +38,36 @@
     return map_context.putImageData(map, 0, 0);
   };
   $(function() {
-    var earth_canvas, earth_context, earth_img, map_canvas, update_radius;
+    var earth_canvas, earth_context, earth_img, map_canvas, update_mouse, update_moving_input, update_radius;
     map_canvas = $('#map-canvas');
     map_context = map_canvas.get(0).getContext('2d');
+    update_mouse = function(event) {
+      var map_position;
+      map_position = map_canvas.position();
+      click = {
+        x: event.pageX - map_position.left,
+        y: event.pageY - map_position.top
+      };
+      click.lon = click.x * factor_x - 180;
+      click.lat = click.y * factor_y + 90;
+      $('#position').text("" + (Math.abs(click.lon).toFixed(1)) + "° " + (click.lon < 0 ? 'W' : 'E') + ",\n" + (Math.abs(click.lat).toFixed(1)) + "° " + (click.lat < 0 ? 'S' : 'N') + ".");
+      return update();
+    };
     earth_canvas = document.createElement('canvas');
     earth_canvas.width = width;
     earth_canvas.height = height;
     earth_context = earth_canvas.getContext('2d');
+    update_moving_input = $('#update-moving');
     earth_img = document.createElement('img');
     earth_img.src = window.earth_src;
     earth_img.onload = function() {
       earth_context.drawImage(earth_img, 0, 0);
       earth = earth_context.getImageData(0, 0, width, height);
       map_context.putImageData(earth, 0, 0);
-      return map_canvas.click(function(event) {
-        var map_position;
-        map_position = map_canvas.position();
-        click = {
-          x: event.pageX - map_position.left,
-          y: event.pageY - map_position.top
-        };
-        click.lon = click.x * factor_x - 180;
-        click.lat = click.y * factor_y + 90;
-        $('#position').text("" + (Math.abs(click.lon).toFixed(1)) + "° " + (click.lon < 0 ? 'W' : 'E') + ",\n" + (Math.abs(click.lat).toFixed(1)) + "° " + (click.lat < 0 ? 'S' : 'N') + ".");
-        return update();
+      return map_canvas.click(update_mouse).mousemove(function(event) {
+        if (update_moving_input.is(':checked')) {
+          return update_mouse(event);
+        }
       });
     };
     update_radius = function() {
