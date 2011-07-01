@@ -23,8 +23,8 @@ For JavaScripters:
       lat: 10.752
     };
     var Berlin = {
-      lon: 52.523324,
-      lat: 13.41156
+      lon: 52.523,
+      lat: 13.412
     };
     var OsloToBerlin = Distance.between(Oslo, Berlin);
 
@@ -40,11 +40,11 @@ For CoffeeScripters:
     console.log "#{ Distance('50 km').human_readable 'customary' }"
 
     Oslo =
-      lon: 59.914,
+      lon: 59.914
       lat: 10.752
     Berlin =
-      lon: 52.523324,
-      lat: 13.41156
+      lon: 52.523
+      lat: 13.412
     OsloToBerlin = Distance.between Oslo, Berlin
 
     console.log "#{ OsloToBerlin.human_readable() }"
