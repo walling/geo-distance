@@ -28,8 +28,8 @@ For JavaScripters:
     };
     var OsloToBerlin = Distance.between(Oslo, Berlin);
 
-    console.log(OsloToBerlin.toString());
-    if (OsloToBerlin > Distance('1000 km')) {
+    console.log('' + OsloToBerlin.human_readable());
+    if (OsloToBerlin > Distance('800 km')) {
       console.log('Nice journey!');
     }
 
@@ -47,8 +47,8 @@ For CoffeeScripters:
       lat: 13.41156
     OsloToBerlin = Distance.between Oslo, Berlin
 
-    console.log OsloToBerlin.toString()
-    console.log 'Nice journey!' if OsloToBerlin > Distance('1000 km')
+    console.log "#{ OsloToBerlin.human_readable() }"
+    console.log 'Nice journey!' if OsloToBerlin > Distance '800 km'
 
 
 License
