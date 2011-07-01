@@ -2,7 +2,7 @@
   var click, earth, factor_x, factor_y, height, map_context, radius, radius_input, update, width;
   width = 400;
   height = 200;
-  factor_x = 360 / width;
+  factor_x = 360 / (width - 1);
   factor_y = -180 / (height - 1);
   radius_input = null;
   map_context = null;
