@@ -66,9 +66,9 @@ else
 
 Distance.between = (A, B) ->
 	degrees_to_radians = Math.PI / 180
-	A_lat = (A.lat or A[1]) * degrees_to_radians
-	B_lat = (B.lat or B[1]) * degrees_to_radians
-	d_lon = Math.abs((B.lon or B[0]) - (A.lon or A[0])) * degrees_to_radians
+	A_lat = (A.lat or A[1] or 0) * degrees_to_radians
+	B_lat = (B.lat or B[1] or 0) * degrees_to_radians
+	d_lon = Math.abs((B.lon or B[0] or 0) - (A.lon or A[0] or 0)) * degrees_to_radians
 	new Distance Math.atan2(
 		Math.sqrt(
 			Math.pow(Math.cos(B_lat) * Math.sin(d_lon), 2.0) +
