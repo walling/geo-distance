@@ -1,0 +1,14 @@
+{
+  "name" : "geo-distance",
+  "version" : "0.1.0",
+  "description" : "Calculate and convert Earth distances.",
+  "author": "Bjarke Walling <bwp@bwp.dk>",
+  "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/walling/geo-distance.git" 
+  },
+  "main": "./lib/geo-distance.js",
+  "engines" : {
+    "node" : ">= 0.4.0"
+  }
+}
