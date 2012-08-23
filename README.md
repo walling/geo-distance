@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/walling/geo-distance.png)](http://travis-ci.org/walling/geo-distance)
 
 Common JS module for calculating and converting Earth distances using correct
 [great-circle distance formula](http://en.wikipedia.org/wiki/Great-circle_distance).
