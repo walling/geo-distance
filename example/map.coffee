@@ -49,8 +49,8 @@ $ ->
 		click =
 			x: event.pageX - map_position.left
 			y: event.pageY - map_position.top
-		click.lon = click.x * factor_x - 180
-		click.lat = click.y * factor_y +  90
+		click.lat = click.x * factor_x - 180
+		click.lon = click.y * factor_y +  90
 		$('#position').text """
 			#{Math.abs(click.lon).toFixed 1}° #{if click.lon < 0 then 'W' else 'E'},
 			#{Math.abs(click.lat).toFixed 1}° #{if click.lat < 0 then 'S' else 'N'}.
