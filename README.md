@@ -9,6 +9,12 @@ Installation
     npm install geo-distance
 
 
+Notice
+------
+
+The lat/lon coordinates were flipped until v0.1.2. This is fixed in v0.2.0. Please be aware, when updating. [Discussion here](https://github.com/walling/geo-distance/issues/2).
+
+
 Usage example
 -------------
 
@@ -50,6 +56,12 @@ For CoffeeScripters:
 
     console.log "#{ OsloToBerlin.human_readable() }"
     console.log 'Nice journey!' if OsloToBerlin > Distance '800 km'
+
+
+Other modules
+-------------
+
+If you want to work with GeoJSON or maybe just want to calculate distance as a number (fx. kilometers or miles), it is possible to use the [@turf/distance](https://www.npmjs.com/package/@turf/distance) npm module.
 
 
 License
