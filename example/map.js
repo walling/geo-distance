@@ -21,7 +21,7 @@
     for (x = 0; 0 <= width ? x < width : x > width; 0 <= width ? x++ : x--) {
       for (y = 0; 0 <= height ? y < height : y > height; 0 <= height ? y++ : y--) {
         index = 4 * (y * width + x);
-        pixel = [x * factor_x - 180, y * factor_y + 90];
+        pixel = [y * factor_y + 90, x * factor_x - 180];
         if (Distance.between(click, pixel) < radius) {
           map_data[index] = earth_data[index] * 1.5;
           map_data[index + 1] = earth_data[index + 1] * 1.6;
@@ -48,8 +48,8 @@
         x: event.pageX - map_position.left,
         y: event.pageY - map_position.top
       };
-      click.lon = click.x * factor_x - 180;
       click.lat = click.y * factor_y + 90;
+      click.lon = click.x * factor_x - 180;
       $('#position').text("" + (Math.abs(click.lon).toFixed(1)) + "° " + (click.lon < 0 ? 'W' : 'E') + ",\n" + (Math.abs(click.lat).toFixed(1)) + "° " + (click.lat < 0 ? 'S' : 'N') + ".");
       return update();
     };
