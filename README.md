@@ -6,8 +6,14 @@ Common JS module for calculating and converting Earth distances using correct
 Installation
 ------------
 
-    npm install geo-distance
-    yarn add geo-distance
+```sh
+npm install geo-distanc
+```
+
+```sh
+yarn add geo-distanc
+```
+```
 
 
 Notice
