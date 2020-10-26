@@ -7,6 +7,7 @@ Installation
 ------------
 
     npm install geo-distance
+    yarn add geo-distance
 
 
 Notice
